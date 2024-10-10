@@ -1,0 +1,49 @@
+﻿@page
+@model BulkyWebRazor_Temp.Pages.Categories.EditModel
+
+
+<form method="post">
+    <input asp-for="Category.Id" hidden /> 
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Category</h2>
+            <hr />
+        </div>
+        @*
+            Tự động điền name và displayOrder
+            Do ta sử dụng tags helper asp-for="Name" 
+            Nếu Name có giá trị thì giá trị của nó sẽ tự động được hiển thị 
+        *@
+        <div class="mb-3 row p-1">
+            <label asp-for="Category.Name" class="p-0"></label>
+            <input asp-for="Category.Name" class="form-control" />
+            <span asp-validation-for="Category.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Category.DisplayOder" class="p-0"></label>
+            <input asp-for="Category.DisplayOder" class="form-control" />
+            <span asp-validation-for="Category.DisplayOder" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control">Update</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-page="/categories/index" class="btn btn-secondary border form-control">
+                    Back to list
+                </a>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@* Client Side Validation
+Nếu không sử dụng nó thì mỗi lần nhấn Create thì nó đều load lại trang 1 lần
+Nên sử dụng nó để không phải load lại trang *@
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

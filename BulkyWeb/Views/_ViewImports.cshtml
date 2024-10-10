@@ -1,3 +1,11 @@
-﻿@using BulkyWeb
-@using BulkyWeb.Models
+﻿@* File này dùng để khai báo Titlespace ở trạng thái global cho các class, model, ... khi sử dụng
+chúng trong View 
+    - VD: @using BulkyBook.Models cho phép ta sử dụng các Model trong Titlespace BulkyBook.Models mà 
+    không cần khai báo đầy đủ 
+        + Thay vì viết là @model BulkyBook.Models.ErrorViewModel ở trong file Error 
+        + Thì ta viết là @model ErrorViewModel thì trình biên dịch vẫn hiểu được  *@
+
+@using BulkyBookWeb
+@using BulkyBook.Models
+@using BulkyBook.Models.ViewModels
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
